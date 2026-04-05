@@ -1,3 +1,7 @@
+mod actionable;
+
+pub use actionable::{check_actionable, check_tree_paths, extract_tree_paths};
+
 use regex::Regex;
 use std::fmt;
 use std::path::{Path, PathBuf};
