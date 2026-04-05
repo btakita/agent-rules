@@ -7,7 +7,7 @@ license = "CC0-1.0"
 repository = "https://github.com/btakita/agent-rules"
 
 [dependencies]
-agent-kit = { version = "0.3", path = "../agent-kit" }
+agent-kit = "0.4"
 anyhow = "1"
 clap = { version = "4", features = ["derive"] }
 once_cell = "1"
