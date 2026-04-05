@@ -97,6 +97,28 @@ See [SPEC.md](SPEC.md) for the full format specification, including recommended 
 - [AGENTS.md](https://agents.md/) -- Universal instruction file spec (Linux Foundation)
 - [instruction-files](https://github.com/btakita/instruction-files) -- Discovery, auditing, and sync for AI agent instruction files
 
+## Install
+
+### Quick install (prebuilt binary)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/btakita/agent-rules/main/install.sh | sh
+```
+
+### Cargo
+
+```bash
+cargo install agent-rules
+```
+
+### From source
+
+```bash
+git clone https://github.com/btakita/agent-rules.git
+cd agent-rules
+cargo install --path .
+```
+
 ## License
 
 [CC0 1.0](LICENSE) -- Public domain. Use this convention however you like.
