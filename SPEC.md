@@ -145,6 +145,44 @@ Keep the instruction file focused on *what* and *why*. Move *how* into runbooks.
 
 Each rule should be a single, self-contained statement. Compound rules ("Use snake_case and also run the linter and make sure tests pass") should be split into separate items.
 
+## Agentic Contracts
+
+Promises the agent makes when interacting with instruction files governed by this spec.
+
+### When validating rules
+
+The agent promises to:
+
+- Check all files in scope -- never silently skip an instruction file.
+- Report line numbers for each issue found.
+- Apply every validation rule in the "Validation Rules" section above.
+
+### When applying rules
+
+The agent promises to:
+
+- Follow all constraints in scope for the current working directory.
+- Never add rules to an instruction file without user consent.
+- Flag conflicts between rules (e.g., contradictory constraints across per-directory files).
+
+### When authoring rules
+
+The agent promises to:
+
+- Use imperative voice -- every rule starts with a verb or "Never"/"Always"/"Do not".
+- Keep content actionable -- no informational-only sections in the instruction file.
+- Externalize procedures to runbooks and reference material to separate files.
+
+## Evals
+
+Tests that verify agent behavior against this spec. Each eval is a scenario with expected outcomes.
+
+| Eval | File | Tests |
+|------|------|-------|
+| Actionable detection | [`evals/actionable_detection.md`](evals/actionable_detection.md) | Does `check_actionable` correctly flag informational sections? |
+| Tree path validation | [`evals/tree_path_validation.md`](evals/tree_path_validation.md) | Does `check_tree_paths` catch missing files? |
+| Cross-tool portability | [`evals/cross_tool_portability.md`](evals/cross_tool_portability.md) | Do rules written for one tool work across all supported tools? |
+
 ## Relationship to Other Specs
 
 | Spec | Content Type | Format |
